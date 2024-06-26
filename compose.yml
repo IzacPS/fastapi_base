@@ -1,0 +1,30 @@
+services:
+  paradedb:
+    image: paradedb/paradedb:latest
+    container_name: paradedb
+    environment:
+      POSTGRESQL_USERNAME: qop
+      POSTGRESQL_PASSWORD: F2LRWI3lxH2h
+      POSTGRESQL_DATABASE: qop
+      POSTGRESQL_POSTGRES_PASSWORD: postgres
+    volumes:
+      - paradedb_data:/bitnami/postgresql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+  # minio:
+  #   image: minio/minio:latest
+  #   container_name: minio
+  #   ports:
+  #     - "9000:9000"
+  #     - "9001:9001"  # Porta para o console do MinIO
+  #   environment:
+  #     MINIO_ROOT_USER: "qop"
+  #     MINIO_ROOT_PASSWORD: "Rq4189MsveM9"
+  #   command: server /data --console-address ":9001"
+  #   volumes:
+  #     - minio-data:/data
+
+volumes:
+  paradedb_data:
+  # minio-data:
